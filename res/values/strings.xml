@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Proximity Lock</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="btn_toggle_start_label_start">Start</string>
+    <string name="btn_toggle_start_label_stop">Stop</string>
+    <string name="btn_calibration_label">Calibration</string>
+    <string name="tv_sensor_status_label">Sensor status</string>
+    <string name="tv_wave_time_label">Time</string>
+    <string name="tv_wave_min_time_label">Min time</string>
+    <string name="tv_wave_max_time_label">Max time</string>
+    <string name="tv_calibration_progress_label">Calibration progress</string>
+    <string name="sensor_status_near">Near</string>
+    <string name="sensor_status_far">Far</string>
+    <string name="btn_reset_calibration_label">Reset</string>
+    <string name="btn_save_calibration_label">Save</string>
+    <string name="tv_notification_toggle_label">Notification</string>
+    <string name="tv_foreground_toggle_label">Run service in foreground (Require notification on)</string>
+    <string name="tv_start_on_boot_label">Auto start</string>
+    <string name="tv_sensor_delay_label">Sensor delay</string>
+    <string name="tv_pocket_detection_label">Pocket detection</string>
+    <string name="tv_disable_in_landscape_label">Disable in landscape mode</string>
+
+    <string name="text_admin_enabled">Proximity Lock Admin acquired</string>
+    <string name="text_admin_disabled">Proximity Lock Admin disabled</string>
+    <string name="text_admin_request_disable">Proximity Lock Admin is required to lock the screen. Disable this may cause the applicatation fail to run</string>
+    <string name="text_admin_request_reason">Proximity Lock Admin is required to lock the screen.</string>
+    
+    <string name="text_not_running">Proximity lock is not running</string>
+    <string name="text_running">Proximity lock is running</string>
+    <string name="text_running_foreground">Proximity lock is running in foreground</string>
+</resources>
