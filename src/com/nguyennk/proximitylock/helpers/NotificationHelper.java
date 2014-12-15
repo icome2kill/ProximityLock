@@ -56,7 +56,7 @@ public class NotificationHelper {
 		if (PreferencesHelper.isNotificationOn(context)) {
 			CharSequence msg = context.getResources().getString(
 					R.string.text_not_running);
-			int logoResId = NOT_RUNNING_LOGO_ID;
+			int logoResId = R.drawable.app_not_running;
 			CharSequence actionLabel = context.getResources().getString(
 					R.string.btn_toggle_start_label_start);
 
@@ -65,7 +65,7 @@ public class NotificationHelper {
 			if (PreferencesHelper.isServiceRunning(context,
 					ProximityService.class)) {
 				msg = context.getResources().getString(R.string.text_running);
-				logoResId = RUNNING_LOGO_ID;
+				logoResId = R.drawable.app_running;
 
 				actionLabel = context.getResources().getString(
 						R.string.btn_toggle_start_label_stop);
@@ -75,7 +75,7 @@ public class NotificationHelper {
 						ProximityService.class)) {
 					msg = context.getResources().getString(
 							R.string.text_running_foreground);
-					logoResId = RUNNING_LOGO_ID;
+					logoResId = R.drawable.app_running;
 				}
 			}
 
@@ -89,7 +89,7 @@ public class NotificationHelper {
 				if (action.equalsIgnoreCase(ProximityService.ACTION_STOP)) {
 					msg = context.getResources().getString(
 							R.string.text_running_foreground);
-					logoResId = RUNNING_LOGO_ID;
+					logoResId = R.drawable.app_running;
 				}
 			}
 
@@ -100,7 +100,7 @@ public class NotificationHelper {
 					.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
 					.setContentText(msg)
 					.setSmallIcon(logoResId)
-					.addAction(R.drawable.ic_launcher, actionLabel, pendingIntent);
+					.addAction(R.drawable.app_running, actionLabel, pendingIntent);
 
 			NotificationManagerCompat notificationManager = NotificationManagerCompat
 					.from(context);
