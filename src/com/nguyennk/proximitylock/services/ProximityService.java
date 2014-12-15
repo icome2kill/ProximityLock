@@ -83,10 +83,11 @@ public class ProximityService extends Service implements SensorEventListener {
 		sensorManager.registerListener(this, sensor,
 				PreferencesHelper.getSensorDelayValue(this));
 		deviceManager = (DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
+		
 		powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-
 		wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
 				"MyWakelockTag");
+		wakeLock.acquire();
 
 		boolean runInForeground = intent.getBooleanExtra(KEY_RUN_FOREGROUND,
 				false);
@@ -121,7 +122,8 @@ public class ProximityService extends Service implements SensorEventListener {
 	public void onDestroy() {
 		Log.d("ProximityService", "OnDestroy called");
 		sensorManager.unregisterListener(this);
-		wakeLock.release();
+
+        wakeLock.release();
 		stopForeground(false);
 
 		handler.removeCallbacks(runnable);
@@ -156,9 +158,6 @@ public class ProximityService extends Service implements SensorEventListener {
 		if (deviceManager.isAdminActive(new ComponentName(
 				getApplicationContext(), ProximityLockAdminReceiver.class))) {
 			deviceManager.lockNow();
-			if (wakeLock != null) {
-				wakeLock.acquire();
-			}
 		}
 	}
 
@@ -196,9 +195,6 @@ public class ProximityService extends Service implements SensorEventListener {
 
 	@SuppressWarnings("deprecation")
 	private void wakeUp() {
-		if (this.wakeLock != null) {
-			this.wakeLock.release();
-		}
 		WakeLock wakeLock = powerManager.newWakeLock(
 				PowerManager.FULL_WAKE_LOCK
 						| PowerManager.ACQUIRE_CAUSES_WAKEUP
